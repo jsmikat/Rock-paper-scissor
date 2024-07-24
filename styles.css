@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
 *,
 *::after,
 *::before {
@@ -21,17 +23,19 @@ body {
   text-align: center;
   color: #0b0b0b;
   font-size: 8rem;
+  margin: 2rem 0;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .container {
   max-width: 80%;
-  max-height: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2rem;
   margin: 2rem auto;
+  animation: slideIn 1s ease-out;
 }
 
 .screen {
@@ -48,14 +52,19 @@ body {
   position: relative;
 }
 
+.message {
+  font-size: 1.5em;
+  color: #0b0b0b;
+}
+
 .sign {
   width: 40%;
   height: 2.6rem;
-  text-align: center;
   color: #0b0b0b;
   border: 2px solid #0b0b0b;
   background-color: #ebebeb;
   position: absolute;
+  transition: transform 0.5s, background-color 0.5s;
 }
 
 .sign-system {
@@ -80,8 +89,34 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
+  transition: transform 0.2s, background-color 0.3s;
 }
 
 .btn:hover {
-  background-color: #abe76c;
+  background-color: #89c714;
+  transform: translateY(-3px);
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

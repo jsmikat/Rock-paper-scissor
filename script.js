@@ -5,9 +5,9 @@ async function rps(userInput) {
   const selection = options[chosenBySystem];
 
   const outcomes = {
-    rock: { rock: "tie", paper: "lose", scissor: "win" },
-    paper: { rock: "win", paper: "tie", scissor: "lose" },
-    scissor: { rock: "lose", paper: "win", scissor: "tie" },
+    rock: { rock: "tie", paper: "lost", scissor: "won" },
+    paper: { rock: "won", paper: "tie", scissor: "lost" },
+    scissor: { rock: "lost", paper: "won", scissor: "tie" },
   };
 
   const message = outcomes[userInput][selection];
@@ -23,7 +23,10 @@ async function handleClick(element) {
   document.getElementById(
     "sign-system"
   ).innerHTML = `<h1>${result.selection.toUpperCase()}</h1>`;
-  document.getElementById("message").innerText = `It's a ${result.message}`;
+
+  document.getElementById("message").innerText =
+    result.message === "tie" ? "It's a tie!" : `You ${result.message}!`;
+
   document.getElementById(
     "sign-user"
   ).innerHTML = `<h1>${element.value.toUpperCase()}</h1>`;
