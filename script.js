@@ -19,13 +19,29 @@ async function rps(userInput) {
 async function handleClick(element) {
   const result = await rps(element.value);
 
+  // Choose emoji based on result
+  let emoji = "";
+  switch (result.message) {
+    case "won":
+      emoji = "🔥";
+      break;
+    case "lost":
+      emoji = "💀";
+      break;
+    case "tie":
+      emoji = "👻";
+      break;
+  }
+
   // Update the UI with the game results
   document.getElementById(
     "sign-system"
   ).innerHTML = `<h1>${result.selection.toUpperCase()}</h1>`;
 
   document.getElementById("message").innerText =
-    result.message === "tie" ? "It's a tie!" : `You ${result.message}!`;
+    result.message === "tie"
+      ? `It's a tie!\n${emoji}`
+      : `You ${result.message}!\n${emoji}`;
 
   document.getElementById(
     "sign-user"
